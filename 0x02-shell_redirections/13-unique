@@ -1,0 +1,3 @@
+13. takes a list of words as input and prints only words that appear exactly once
+#!/bin/bash
+sort | uniq -u
