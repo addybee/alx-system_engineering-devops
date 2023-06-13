@@ -5,4 +5,6 @@
 4. displays the last 10 lines of /etc/passwd
 5. Display the first 10 lines of /etc/passwd
 6. Display the third line of the file iacta
-7.creates a file named exactly \*\\'"Best School"\'\\*$\?\*\*\*\*\*:) containing the text Best School
+7. creates a file named exactly \*\\'"Best School"\'\\*$\?\*\*\*\*\*:) containing the text Best School
+8. this script  writes into the file ls_cwd_content the result of the command ls -la.
+9. duplicates the last line of the file iacta
