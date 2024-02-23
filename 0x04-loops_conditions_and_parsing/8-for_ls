@@ -2,8 +2,8 @@
 #displays: The content of the current directory
 #In a list format
 #Where only the part of the name after the first dash is displayed
-for file in $(echo * | tr ' ' '\n' | cut -d- -f2 -)
+for file in *;
 do
-	echo "$file";
+	echo "$file" | cut -d- -f2
 done
 
