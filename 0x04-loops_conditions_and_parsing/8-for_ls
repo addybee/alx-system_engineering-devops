@@ -2,7 +2,7 @@
 #displays: The content of the current directory
 #In a list format
 #Where only the part of the name after the first dash is displayed
-for file in $(ls > list; cut -d- -f2 list)
+for file in $(ls | cut -d- -f2 -)
 do
 	echo "$file";
 done
