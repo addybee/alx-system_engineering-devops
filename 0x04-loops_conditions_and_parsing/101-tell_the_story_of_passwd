@@ -5,7 +5,7 @@
 # passcode PASSWORD, more info about the user here: USER ID INF
 IFS=":"
 while read -r USERNAME PASSWORD USERID GROUP_ID UID_INFO HOME_DIRECTORY CMD; do
-	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in "\
+	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in"\
 	     "$HOME_DIRECTORY and rides $CMD. $USERID's place is protected by"\
-	     " the passcode $PASSWORD, more info about the user here: $UID_INFO"
+	     "the passcode $PASSWORD, more info about the user here: $UID_INFO"
 done < "/etc/passwd"
