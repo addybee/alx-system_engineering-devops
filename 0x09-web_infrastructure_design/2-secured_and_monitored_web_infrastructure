@@ -1,0 +1,34 @@
+https://drive.google.com/file/d/1lsMDQLlPAb0bIibk_8vM8eSXNxdJAEMr/view?usp=sharing
+
+What are firewalls for?
+Firewalls are for filtration of the traffic that going and out of the system
+
+Why is the traffic served over HTTPS?
+	traffic are served over HTTPS so as prevent an intruder or an attacker
+from intercepting the traffic.
+
+What monitoring is used for?
+	used to track the server if it is slow or not working.
+
+How the monitoring tool is collecting data?
+	the client collects data from the system, while the monitoring system
+processes and presents this data to users in a meaningful way, enabling them to
+monitor and manage the system effectively.
+
+Explain what to do if you want to monitor your web server QPS:
+	To monitor web server QPS, first install a monitoring tool like Prometheus or Grafana. Configure the monitoring agent to track QPS metrics specifically. Set up alerts to notify of QPS thresholds being exceeded and visualize QPS data over time using dashboards. Regularly analyze QPS metrics to ensure optimal server performance and respond to any anomalies promptly.
+
+Why terminating SSL at the load balancer level is an issue?
+	Terminating SSL at the load balancer level can expose sensitive data to
+potential security risks, as decrypted traffic is then transmitted internally i.e
+from the load balancer to the server.
+
+Why having only one MySQL server capable of accepting writes is an issue?
+this is because if the masters down, the application cannot write to the database anymore.
+
+
+why having servers with all the same components (database, web server and
+application server) might be a problem?
+	having servers with all the same components (database, web server and
+application server) might be a problem because their consumption might not be
+the same between each other and we might want more database than application server

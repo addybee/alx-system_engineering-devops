@@ -1,0 +1,51 @@
+https://imgur.com/fJuMK0z
+
+
+What is a server?
+	A server is a computer hardware or software that provides
+functionality for other programs or devices, called clients. servers can also
+be a virtual computer, they are located in a data center and they run on
+operating system like normal computers.
+
+What is the role of the domain name?
+	the role of the domain name is to help access a website on the internet
+without knowing the IP address.
+
+What type of DNS record www is in www.foobar.com?
+	www.foobar.com is A record because it translate to an IP address.
+
+What is the role of the web server?
+	The role of a web server is to accept http request from the browser and
+return response in form of static web pages.
+
+What is the role of the application server?
+The role of application server is serve a dynamic web content to the web server.
+
+What is the role of the database?
+	The role of the database is to store the data from the appliction.
+
+What is the server using to communicate with the computer of the user
+requesting the website?
+	the server is using an TCP/IP protocol to communicate with the computer
+of the user over the network.
+
+
+
+issues are with this infrastructure:
+
+SPOF:
+	Single Point Of Failure (SPOF), is a part of the system that, if it
+fails the whole entire system stops from working.
+	The above infrastructure has no redundancy that can help in avoiding
+SPOFs, hence, any single failure in any part of the system will cause all the
+system to stop.
+
+Downtime when maintenance needed:
+	In the infrastructure described, downtime is inevitable due to the
+reliance on a single server and database for deployment and maintenance.
+Consequently, users will be unable to access the website during this time.
+
+Cannot scale if too much incoming traffic:
+	Scaling becomes a problem when there's a significant influx of incoming
+traffic with only one server in the system, there's no backup to share the
+workload, leading to potential overload and system strain.

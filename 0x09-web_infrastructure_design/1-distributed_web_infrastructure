@@ -1,0 +1,53 @@
+https://imgur.com/A1uFEe4
+
+
+why additional element (A load balancer and an additional server)?
+	As traffic grows significantly and  millions of users accessing website
+simultaneously one server will not be adequate handle all the requests due to
+overload on the one server. Hence, The employment of 2 more servers. But a new
+issue arises: when a user requests content, should it come from server 1 or
+server 2? To manage this, The load balancer is added to the system, acting like
+a traffic cop directing traffic efficiently between multiple servers.
+
+The Load Balancer's job is to distribute incoming traffic across these servers,
+enhancing efficiency, reliability, and availability. If one server fails, the
+Load Balancer automatically redirects traffic to the remaining servers.
+It employs various algorithms to distribute the workload but the algorithm used
+is round robin.
+Round Robin:
+	Requests are served by the server sequentially one after another. After
+sending the request to the last server, it starts from the first server again.
+This algorithm is used because the servers are of equal specification and there
+not much persistent connections.
+
+
+Is your load-balancer enabling an Active-Active or Active-Passive setup,
+explain the difference between both.
+
+In an active-passive configuration, the server load balancer recognizes a
+failed node and redirects traffic to the next available node. In an
+active-active configuration, the load balancer spreads out the workload’s
+traffic among multiple nodes. So in the sketch the active-active configuration
+is used.
+
+How a database Primary-Replica (Master-Slave) cluster works?
+
+Master-slave replication enables data from one database server (the master)
+to be replicated to one or more other database servers (the slaves). The
+master logs the updates, which then ripple through to the slaves. If the
+changes are made to the master and slave at the same time, it is synchronous.
+
+
+What is the difference between the Primary node and the Replica node in
+regard to the application?
+	he difference between the Primary node and the Replica node in regard
+to the application is that, the primary node is regarded as the authoritative
+source, and the replica node (also known as slave) databases are synchronized
+to it(Master).
+
+Where are SPOF?
+	SPOF is at the Load Balancer because it has no redundancy.
+
+Security issues?
+	the system has no secure traffic that is the communication is not encrypted
+and there is no monitoring or firewall on the servers.
