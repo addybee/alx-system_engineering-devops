@@ -1,5 +1,5 @@
-<h1>0x0A. Configuration management<\h1>
-DevOps
-SysAdmin
-Scripting
-CI/CD
+<h1>0x0A. Configuration management
+<ul>DevOps
+<ul>SysAdmin
+<ul>Scripting
+<ul>CI/CD
