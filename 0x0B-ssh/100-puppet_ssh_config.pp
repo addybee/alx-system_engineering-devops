@@ -6,7 +6,7 @@ file{ '/etc/ssh/ssh_config':
   mode    => '0644',
   content => "Host *
     PasswordAuthentication no
-    tIdentityFile ~/.ssh/school
+    IdentityFile ~/.ssh/school
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes",
