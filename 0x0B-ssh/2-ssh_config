@@ -6,5 +6,8 @@
 #  authenticate using a password
 
 Host *
-    IdentityFile ~/.ssh/school
     PasswordAuthentication no
+    IdentityFile ~/.ssh/id_rsa
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
