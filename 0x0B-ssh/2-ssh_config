@@ -5,5 +5,6 @@
 # Your SSH client configuration must be configured to refuse to
 #  authenticate using a password
 
-IdentityFile ~/.ssh/school
-PasswordAuthentication no:wq
+Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no:wq
