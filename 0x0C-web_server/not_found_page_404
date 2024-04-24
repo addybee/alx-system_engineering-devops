@@ -6,6 +6,5 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tree /var/www/html/index.html
-sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://devhints.io/bash permanent;\nerror_page 404 \/404.html;\n' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://devhints.io/bash permanent;' /etc/nginx/sites-available/default
 sudo service nginx restart
