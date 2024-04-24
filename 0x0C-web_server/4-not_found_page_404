@@ -6,13 +6,13 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tree /var/www/html/index.html
-sed -i '/listen 80 default_server/a \\trewrite ^/redirect_me https://devhints.io/bash permanent;\\
+sed -i "/listen 80 default_server/a rewrite ^/redirect_me https://devhints.io/bash permanent;\\
     error_page 404 /404.html;\\
-    location = /404.html {\
-        root /usr/share/nginx/html;\
-        internal;\
-    }\n' /etc/nginx/sites-available/default
+    location = /404.html {\\
+        root /usr/share/nginx/html;\\
+        internal;\\
+    }\n" /etc/nginx/sites-available/default
 
 echo "<h1 style='color:red'>Error 404: Not found :-(</h1>" | sudo tee /usr/share/nginx/html/404.html
-echo "<p>Ceci n'est pas une page</p>" | sudo tee -a /usr/share/nginx/html/custom_404.html
+echo "<p>Ceci n'est pas une page</p>" | sudo tee -a /usr/share/nginx/html/404.html
 sudo service nginx restart
