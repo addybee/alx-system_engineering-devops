@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+sed -i '/listen 80 default_server/a \\trewrite ^/redirect_me https://devhints.io/bash permanent;' examp
+
