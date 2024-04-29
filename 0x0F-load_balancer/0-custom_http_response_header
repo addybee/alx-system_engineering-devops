@@ -4,8 +4,7 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo apt -y install tree
-echo "Hello World!" | sudo tree /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo sed -i "/listen 80 default_server;/,/location \/ {/ { /location/a\\
         add_header X-Served-By \"$HOSTNAME\";
 }" /etc/nginx/sites-available/default
