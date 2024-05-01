@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# automation of debugging for nginx server
+
+service nginx start
