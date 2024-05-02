@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # automation of debugging for nginx server
 cp -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-sudo service nginx stop
+service nginx start
+kill "$(pgrep 'nginx' | head -1)"
