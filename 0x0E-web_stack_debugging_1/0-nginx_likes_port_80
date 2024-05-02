@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # automation of debugging for nginx server
 
-service nginx start
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+service nginx restart
