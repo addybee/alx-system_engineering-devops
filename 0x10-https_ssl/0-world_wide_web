@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Display information about subdomains.
+
+display_info() {
+    SUBDOMAIN="$2.$1"
+    dig "$SUBDOMAIN" | grep -A1 'ANSWER SECTION:' | 
+    awk -v subdomain="$2" 'BEGIN { RS="\n" } $0 ~ subdomain {
+        line="The subdomain " subdomain " is a " $4 " record and points to " $5;
+        print line }'
+    return 0
+}
+
+if [ -n "$1" ] && [ -n "$2" ]; then
+    display_info "$1" "$2"
+elif [ -n "$1" ] && [ -z "$2" ]; then
+    subDNS=('www' 'lb-01' 'web-01' 'web-02')
+    for subDns in "${subDNS[@]}"; do
+        display_info "$1" "$subDns"
+    done
+fi
