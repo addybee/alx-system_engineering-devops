@@ -5,4 +5,6 @@
 # You cannot use apt-get remove
 
 chmod 744 /etc/nginx/nginx.conf
-sudo -u nginx sed -i "s/listen 80 default_server/listen 8080 default_server/g" /etc/nginx/sites-available/default && service nginx start
+pkill apache2
+sudo -u nginx sed -i "s/listen 80 default_server/listen 8080 default_server/g" /etc/nginx/sites-available/default
+sudo -u nginx service nginx start
