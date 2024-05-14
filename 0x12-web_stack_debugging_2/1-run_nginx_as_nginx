@@ -3,8 +3,11 @@
 # nginx must be running as nginx user
 # nginx must be listening on all active IPs on port 8080
 # You cannot use apt-get remove
-
+#change the file permission
 chmod 644 /etc/nginx/nginx.conf
-pkill apache2
-sudo -u nginx sed -i "s/listen 80 default_server/listen 8080 default_server/g" /etc/nginx/sites-available/default
+#stop the apache 2 server
+for pid in $(pidof apache2); do
+	kill "$pid"
+done
+sudo -u nginx sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 sudo -u nginx service nginx start
