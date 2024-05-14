@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
 # write a Bash script that accepts one argument
 # the script should run the whoami command under the user passed as an argument
-
-if [ -n "$1" ]; then
-	su -c whoami "$1"
-else
-	whoami
-fi
+sudo -u "$1" whoami
