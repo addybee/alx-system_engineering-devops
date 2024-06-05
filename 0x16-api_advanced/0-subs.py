@@ -35,7 +35,8 @@ def number_of_subscribers(subreddit):
     headers = {"User-Agent": "redmi_api"}
 
     try:
-        response = requests.get(base_url, headers=headers, allow_redirects=False)
+        response = requests.get(base_url, headers=headers,
+                                allow_redirects=False)
         response.raise_for_status()
     except requests.RequestException:
         return 0
