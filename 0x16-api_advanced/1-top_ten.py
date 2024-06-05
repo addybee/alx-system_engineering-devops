@@ -25,13 +25,10 @@ def top_ten(subreddit):
     try:
         response = requests.get(base_url, headers=headers,
                                 params=params, allow_redirects=False)
-        response.raise_for_status()
+        if response.status_code == 404:
+            raise Exception
     except requests.RequestException:
         print(None)
-        return
-
-    if response.status_code == 404:
-        print("None")
         return
 
     result = response.json().get('data', {})
