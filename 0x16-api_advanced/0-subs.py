@@ -31,7 +31,7 @@ def number_of_subscribers(subreddit):
         int: The number of subscribers for the subreddit, or 0 if the subreddit
         does not exist or the request is redirected.
     """
-    base_url = "https://reddit.com/r/{}/about.json".format(subreddit)
+    base_url = "https://api.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "redmi_api"}
 
     try:
