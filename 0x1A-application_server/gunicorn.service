@@ -1,0 +1,23 @@
+[Unit]
+Description=Gunicorn instance to serve Airbnb webdynamic
+After=network.target
+
+[Service]
+# The user under which the service will run. Ensure this user has the necessary permissions.
+User=ubuntu
+# The group under which the service will run.
+Group=www-data
+# The working directory for the Gunicorn service.
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/
+# Environment variables needed for your application.
+Environment="HBNB_MYSQL_USER=hbnb_dev"
+Environment="HBNB_MYSQL_PWD=hbnb_dev_pwd"
+Environment="HBNB_MYSQL_HOST=localhost"
+Environment="HBNB_MYSQL_DB=hbnb_dev_db"
+Environment="HBNB_TYPE_STORAGE=db"
+# The command to start Gunicorn.
+ExecStart=/usr/local/bin/gunicorn --workers 3 --error-logfile /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app
+
+[Install]
+# Ensure the service is started on boot.
+WantedBy=multi-user.target
