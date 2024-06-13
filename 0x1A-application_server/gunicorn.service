@@ -1,3 +1,4 @@
+# configuration of gunicorn
 [Unit]
 Description=Gunicorn instance to serve Airbnb webdynamic
 After=network.target

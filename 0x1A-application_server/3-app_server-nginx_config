@@ -1,22 +1,22 @@
 server {
-    # Listen on port 80 for both IPv4 and IPv6 addresses.
-    listen 80;
-    listen [::]:80 ipv6only=on;
+        # Listen on port 80 for both IPv4 and IPv6 addresses.
+        listen 80;
+        listen [::]:80 ipv6only=on;
 
-    # Define the server name for this configuration.
-    server_name akinbode.tech www.akinbode.tech;
+        # Define the server name for this configuration.
+        server_name akinbode.tech www.akinbode.tech;
 
-    # Add a custom header to responses indicating which server handled the request.
-    add_header X-Served-By "448619-web-01";
+        # Add a custom header to responses indicating which server handled the request.
+        add_header X-Served-By "448619-web-01";
 
-    # Proxy requests that match the pattern /airbnb-dynamic/number_odd_or_even/ followed by a number
-    # to the backend service running on port 5001, passing the number as a parameter.
-    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
-        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
-    }
+        # Proxy requests that match the pattern /airbnb-dynamic/number_odd_or_even/ followed by a number
+        # to the backend service running on port 5001, passing the number as a parameter.
+        location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+        }
 
-    # Proxy requests exactly matching /airbnb-onepage to the backend service running on port 5000.
-    location = /airbnb-onepage {
-        proxy_pass http://127.0.0.1:5000;
-    }
+        # Proxy requests exactly matching /airbnb-onepage to the backend service running on port 5000.
+        location = /airbnb-onepage {
+                proxy_pass http://127.0.0.1:5000;
+        }
 }
