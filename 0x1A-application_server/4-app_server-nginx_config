@@ -22,7 +22,7 @@ server {
 	}
 
 	# Proxy requests exactly matching /airbnb-onepage to the backend service running on port 5000.
-	location = /airbnb-onepage {
+	location ~ /airbnb-onepage {
 		proxy_pass http://127.0.0.1:5000;
 	}
 }
