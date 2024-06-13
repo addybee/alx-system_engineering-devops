@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
 #  script to reload Gunicorn in a graceful way.
 
-sudo ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
+# Find the Gunicorn master process ID
+GUNICORN_PID=$(ps -e -o ppid= | sort -u | grep -v '0' | xargs -I {} ps -p {} -o pid,cmd | grep 'gunicorn'| awk '{print $1}')
+
+if [ -z "$GUNICORN_PID" ]; then
+  echo "Gunicorn master process not found." && exit 1
+fi
+
+for pidd in $GUNICORN_PID; do
+    # Send the SIGHUP signal to the Gunicorn master process to gracefully reload
+    kill -HUP "$pidd";
+done
