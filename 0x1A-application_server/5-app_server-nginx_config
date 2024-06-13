@@ -11,11 +11,13 @@ server {
 
     # Proxy all requests to the backend service running on port 5003.
     location / {
+        include proxy_params;
         proxy_pass http://127.0.0.1:5003;
     }
 
     # Serve static files from the specified directory.
     location /static {
+        include  /etc/nginx/mime.types;
         root /home/ubuntu/AirBnB_clone_v4/web_dynamic/;
     }
 
