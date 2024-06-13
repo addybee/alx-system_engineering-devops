@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 #  script to reload Gunicorn in a graceful way.
 
-# Send the SIGHUP signal to the Gunicorn master process to gracefully reload
-if sudo ps aux | grep gunicorn | grep -v 'grep' | awk '{ print $2 }' | xargs kill -HUP; then
-echo "Gunicorn reloaded successfully."
-else
-echo "Failed to reload Gunicorn." && exit 1
-fi
+# Find the Gunicorn master process ID
+GUNICORN_PID=$(ps -e -o ppid= | sort -u | grep -v '0' | xargs -I {} ps -p {} -o pid,cmd | grep 'gunicorn'| awk '{print $1}')
+
+
+for pid in $GUNICORN_PID; do
+    # Send the SIGHUP signal to the Gunicorn master process to gracefully reload
+    kill -HUP "$pid"
+done
